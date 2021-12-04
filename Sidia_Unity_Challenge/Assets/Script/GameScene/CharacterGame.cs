@@ -14,9 +14,7 @@ public class CharacterGame : MonoBehaviour
 
     Vector3 distanceCam;
 
-    private bool isMoving;
-    private Vector3 originPosition, targetPosition;
-    private float timeToMove = 2f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,39 +33,13 @@ public class CharacterGame : MonoBehaviour
     void Update()
     {
         transform.position = player.transform.position + distanceCam;
-        PlayerMovement();
+        
     }
 
 
-    void PlayerMovement()
-    {
-        if (Input.GetKey(KeyCode.W) && !isMoving)
-        {
-            StartCoroutine(MovePlayer(Vector3.up));
-        }
+    
 
-    }
-
-    private IEnumerator MovePlayer(Vector3 direction)
-    {
-        isMoving = true;
-
-        float timeElapse = 0;
-
-        originPosition = transform.position;
-        targetPosition = originPosition + direction;
-
-        while (timeElapse < timeToMove)
-        {
-            transform.position = Vector3.Lerp(originPosition, targetPosition, (timeElapse / timeToMove));
-            timeElapse += Time.deltaTime;
-            yield return null;
-        }
-
-        transform.position = targetPosition;
-
-        isMoving = false;
-    }
+    
 
 
 
