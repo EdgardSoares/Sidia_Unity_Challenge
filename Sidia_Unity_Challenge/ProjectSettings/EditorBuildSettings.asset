@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: "Assets/Scenes/Sele\xE7\xE3oDePersonagem 1.unity"
     guid: 57d64cd6bebeecb488e40d8de9f82804
   - enabled: 1
+    path: "Assets/Scenes/Sele\xE7\xE3oDePersonagem 2.unity"
+    guid: 2b2d8e37b59f40149b9010c958d736d9
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: a1f1a68d295aa114c810242df64cfccb
   m_configObjects: {}

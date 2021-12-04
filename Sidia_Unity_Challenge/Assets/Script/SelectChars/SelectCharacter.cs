@@ -14,9 +14,6 @@ public class SelectCharacter : MonoBehaviour
     public GameObject player02BTN;
     public GameObject startBTN;
 
-    //Player 2
-    public int selectCharacter02 = 0;
-
 
     void Start()
     {
@@ -25,7 +22,7 @@ public class SelectCharacter : MonoBehaviour
         characters[1].SetActive(false);
         characters[2].SetActive(false);
         player02BTN.SetActive(false);
-        startBTN.SetActive(false);
+        
 
     }
 
@@ -58,22 +55,16 @@ public class SelectCharacter : MonoBehaviour
     public void Player01Select()
     {
         PlayerPrefs.SetInt("selectCharacter", selectCharacter);
-        player01BTN.SetActive(false);
-        player02BTN.SetActive(true);
+       // player01BTN.SetActive(false);
+        //player02BTN.SetActive(true);
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 
-    public void Player02Select()
-    {
-        PlayerPrefs.SetInt("selectCharacter02", selectCharacter02);
-        player02BTN.SetActive(false);
-        startBTN.SetActive(true);
-
-    }
 
     //Metodo do botao Start, salvando o personagem selecionado e carregando a cena do jogo
     public void StartGame()
     {
         
-        SceneManager.LoadScene(2, LoadSceneMode.Single);
+        
     }
 }

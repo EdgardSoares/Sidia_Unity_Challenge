@@ -435,7 +435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 484542}
   - component: {fileID: 9517114}
-  - component: {fileID: -3271482197543917549}
+  - component: {fileID: 4042853449609345533}
   m_Layer: 0
   m_Name: Character_Viking_Black
   m_TagString: Untagged
@@ -482,7 +482,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-3271482197543917549
+--- !u!114 &4042853449609345533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391990aee82812a4cbc49057b279cf42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  state: 0
 --- !u!1 &108624
 GameObject:
   m_ObjectHideFlags: 0

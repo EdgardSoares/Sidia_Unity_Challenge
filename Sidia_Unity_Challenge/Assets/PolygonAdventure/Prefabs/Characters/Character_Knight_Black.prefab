@@ -487,14 +487,14 @@ GameObject:
   m_Component:
   - component: {fileID: 413626}
   - component: {fileID: 9549874}
-  - component: {fileID: 6559424167620829627}
+  - component: {fileID: -5778694327398476135}
   m_Layer: 0
   m_Name: Character_Knight_Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &413626
 Transform:
   m_ObjectHideFlags: 0
@@ -534,7 +534,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6559424167620829627
+--- !u!114 &-5778694327398476135
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391990aee82812a4cbc49057b279cf42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  state: 0
 --- !u!1 &113432
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public GameObject hightlight;
+
+    void OnMouseEnter()
     {
-        
+        hightlight.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnMouseExit()
     {
-        
+        hightlight.SetActive(false);
     }
 }
