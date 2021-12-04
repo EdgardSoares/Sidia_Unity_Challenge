@@ -14,10 +14,13 @@ public class SelectCharacter : MonoBehaviour
 
     void Start()
     {
+        //Iniciando o texto e o personagem do Viking como false
         vikingText.SetActive(false);
         characters[1].SetActive(false);
 
     }
+
+    //Metodo do evento do click do botao Next, trocando para o proximo personagem
     public void Next()
     {
         characters[selectCharacter].SetActive(false);
@@ -29,6 +32,7 @@ public class SelectCharacter : MonoBehaviour
         Debug.Log("Selecionou o Knight");
     }
 
+    //Metodo do evento do click do botao Previous, voltando para o personagem anterior
     public void Previous()
     {
         vikingText.SetActive(false);
@@ -42,6 +46,7 @@ public class SelectCharacter : MonoBehaviour
         characters[selectCharacter].SetActive(true);
     }
 
+    //Metodo do botao Start, salvando o personagem selecionado e carregando a cena do jogo
     public void StartGame()
     {
         PlayerPrefs.SetInt("selectCharacter", selectCharacter);
