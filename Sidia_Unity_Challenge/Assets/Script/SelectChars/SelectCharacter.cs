@@ -10,6 +10,12 @@ public class SelectCharacter : MonoBehaviour
     public int selectCharacter = 0;
     public GameObject vikingText;
     public GameObject knightText;
+    public GameObject player01BTN;
+    public GameObject player02BTN;
+    public GameObject startBTN;
+
+    //Player 2
+    public int selectCharacter02 = 0;
 
 
     void Start()
@@ -17,6 +23,9 @@ public class SelectCharacter : MonoBehaviour
         //Iniciando o texto e o personagem do Viking como false
         vikingText.SetActive(false);
         characters[1].SetActive(false);
+        characters[2].SetActive(false);
+        player02BTN.SetActive(false);
+        startBTN.SetActive(false);
 
     }
 
@@ -29,7 +38,7 @@ public class SelectCharacter : MonoBehaviour
         characters[selectCharacter].SetActive(true);
         vikingText.SetActive(true);
         knightText.SetActive(false);
-        Debug.Log("Selecionou o Knight");
+        
     }
 
     //Metodo do evento do click do botao Previous, voltando para o personagem anterior
@@ -46,10 +55,25 @@ public class SelectCharacter : MonoBehaviour
         characters[selectCharacter].SetActive(true);
     }
 
+    public void Player01Select()
+    {
+        PlayerPrefs.SetInt("selectCharacter", selectCharacter);
+        player01BTN.SetActive(false);
+        player02BTN.SetActive(true);
+    }
+
+    public void Player02Select()
+    {
+        PlayerPrefs.SetInt("selectCharacter02", selectCharacter02);
+        player02BTN.SetActive(false);
+        startBTN.SetActive(true);
+
+    }
+
     //Metodo do botao Start, salvando o personagem selecionado e carregando a cena do jogo
     public void StartGame()
     {
-        PlayerPrefs.SetInt("selectCharacter", selectCharacter);
+        
         SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 }
