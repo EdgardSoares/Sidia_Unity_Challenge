@@ -6,9 +6,11 @@ public class CharacterGame : MonoBehaviour
 {
     public GameObject[] characterPrefabs;
     public Transform spawn;
+    public Transform spawn2;
     public GameObject prefab;
     public GameObject prefab2;
     public GameObject novo;
+    public GameObject novo2;
 
     Vector3 distanceCam;
 
@@ -20,7 +22,7 @@ public class CharacterGame : MonoBehaviour
         prefab = characterPrefabs[selectCharacter]; //Selecionar o prefab
         prefab2 = characterPrefabs[selectCharacter02];
         novo = Instantiate(prefab, spawn.position, Quaternion.identity); //Spawnar no mapa
-        novo = Instantiate(prefab2, spawn.position, Quaternion.identity);
+        novo2 = Instantiate(prefab2, spawn2.position, Quaternion.identity);
         //Fazer o Spawn ser random no mapa
 
         distanceCam = transform.position - novo.transform.position;
