@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum TurnState { PLAYER01TURN, PLAYER02TURN, WON, LOST}
 
@@ -10,11 +11,16 @@ public class PlayerController : MonoBehaviour
     private bool isMoving;
     private Vector3 originPosition, targetPosition;
     private float timeToMove = 1f;
-    private int turnsCount = 0;
+    public int turnsCount;
 
     private float speed = 3;
 
     Player02Controller player02;
+
+    public GameObject p;
+
+    //Canvas
+    
 
 
     // Start is called before the first frame update
@@ -23,46 +29,52 @@ public class PlayerController : MonoBehaviour
         state = TurnState.PLAYER01TURN;
         Player01Turn();
         
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         PlayerMovement();
-        if (turnsCount == 3)
+
+        if (turnsCount == 0)
         {
-            turnsCount = 0;
-            state = TurnState.PLAYER02TURN;
-            StartCoroutine(Player02Turn());
+            Debug.Log("Fim do Turno do P1");
+            
         }
+        
 
     }
 
     void Player01Turn()
     {
-        Debug.Log("Turno do Player 01");
         
+        PlayerMovement();
+
     }
 
 
     IEnumerator Player02Turn()
     {
-        Debug.Log("Turno do Player 02");
-        yield return new WaitForSeconds(1f);
+               
+        yield return new WaitForSeconds(2f);
         
-        
+        // player02 = FindObjectOfType<Player02Controller>();
+        //player02.Player02Movement();
+
+
+
     }
+
+
+
+    
 
 
     //Metodo de Input do jogador pelo Teclado
     void PlayerMovement()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Ola");
-        }
-
-
+                
         if (Input.GetKey(KeyCode.D) && !isMoving)
         {
             StartCoroutine(MovePlayer(Vector3.right.normalized));

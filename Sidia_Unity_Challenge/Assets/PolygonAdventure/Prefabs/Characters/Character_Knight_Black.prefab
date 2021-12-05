@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: -5778694327398476135}
   m_Layer: 0
   m_Name: Character_Knight_Black
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -547,6 +547,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  turnsCount: 0
+  p: {fileID: 0}
 --- !u!1 &113432
 GameObject:
   m_ObjectHideFlags: 0

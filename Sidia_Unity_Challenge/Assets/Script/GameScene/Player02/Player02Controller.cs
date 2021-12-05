@@ -2,51 +2,82 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Turnstate { PLAYER02TURN, PLAYER01TURN}
+
 public class Player02Controller : MonoBehaviour
 {
-
+    public TurnState state;
     private bool isMoving;
     private Vector3 originPosition, targetPosition;
     private float timeToMove = 1f;
-    private int turnsCount = 0;
+    public int p2TurnsCount;
     private float speed = 3;
 
-    public GameObject player02Char;
-    CharacterGame charPlayer02;
+    public TurnControl turn;
 
-    
 
-    void Player02Movement()
+
+
+
+    public void Update()
+    {
+
+        Player02Movement();
+        
+        if (p2TurnsCount == 0)
+        {
+            Debug.Log("Fim do Turno do P2");
+        }
+
+
+      /*if (turn.isPlayer02Turn == true)
+        {
+            
+            Player02Movement();
+        }*/
+        
+    }
+
+
+    public void Player02()
+    {
+        state = TurnState.PLAYER02TURN;
+        Player02Movement();
+    }
+
+
+
+    public void Player02Movement()
     {
         
         if (Input.GetKey(KeyCode.D) && !isMoving)
         {
             StartCoroutine(MovePlayer02(Vector3.right.normalized));
-            turnsCount = turnsCount + 1;
+            p2TurnsCount = p2TurnsCount + 1;
         }
 
         if (Input.GetKey(KeyCode.A) && !isMoving)
         {
             StartCoroutine(MovePlayer02(Vector3.left.normalized));
-            turnsCount = turnsCount + 1;
+            p2TurnsCount = p2TurnsCount + 1;
         }
 
         if (Input.GetKey(KeyCode.W) && !isMoving)
         {
             StartCoroutine(MovePlayer02(Vector3.forward.normalized));
-            turnsCount = turnsCount + 1;
+            p2TurnsCount = p2TurnsCount + 1;
         }
 
         if (Input.GetKey(KeyCode.S) && !isMoving)
         {
             StartCoroutine(MovePlayer02(Vector3.back.normalized));
-            turnsCount = turnsCount + 1;
+            p2TurnsCount = p2TurnsCount + 1;
         }
 
 
     }
 
-    private IEnumerator MovePlayer02(Vector3 direction)
+    public IEnumerator MovePlayer02(Vector3 direction)
     {
         isMoving = true;
 
