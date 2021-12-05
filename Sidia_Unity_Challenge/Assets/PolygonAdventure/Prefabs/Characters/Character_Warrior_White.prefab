@@ -2862,6 +2862,7 @@ GameObject:
   - component: {fileID: 498126}
   - component: {fileID: 9581768}
   - component: {fileID: -8816640385248813749}
+  - component: {fileID: 3204762066923067113}
   m_Layer: 0
   m_Name: Character_Warrior_White
   m_TagString: Untagged
@@ -2920,7 +2921,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2a76571f1bbf24988fdb0876ea3523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player02Char: {fileID: 0}
+  state: 0
+  p2TurnsCount: 0
+  turn: {fileID: 0}
+--- !u!114 &3204762066923067113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2530ecfda9c10a4bbb17d5494190e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  maxHP: 0
+  currentHP: 0
 --- !u!1 &189398
 GameObject:
   m_ObjectHideFlags: 0

@@ -574,6 +574,7 @@ GameObject:
   - component: {fileID: 469928}
   - component: {fileID: 9598506}
   - component: {fileID: 4430447771188379939}
+  - component: {fileID: -5342059407712155745}
   m_Layer: 0
   m_Name: Character_Peasant_Brown
   m_TagString: Untagged
@@ -632,6 +633,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2a76571f1bbf24988fdb0876ea3523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  p2TurnsCount: 0
+  turn: {fileID: 0}
+--- !u!114 &-5342059407712155745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2530ecfda9c10a4bbb17d5494190e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  maxHP: 0
+  currentHP: 0
 --- !u!1 &117902
 GameObject:
   m_ObjectHideFlags: 0

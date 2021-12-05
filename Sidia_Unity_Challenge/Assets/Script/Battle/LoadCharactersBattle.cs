@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleSystem : MonoBehaviour
+public class LoadCharactersBattle : MonoBehaviour
 {
+
+    public GameObject[] battleCharPrefabs;
+    public Transform spawn;
+    public GameObject prefab;
+    public GameObject player01;
     // Start is called before the first frame update
     void Start()
     {
