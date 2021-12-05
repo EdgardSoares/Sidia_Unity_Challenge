@@ -16,29 +16,35 @@ public class BattleSystem : MonoBehaviour
     DiceRolls dice;
     public int finalSide = 0;
     //Player 01 Final Dices
-    public int player01Dice01;
-    public int player01Dice02;
-    public int player01Dice03;
+    private int player01Dice01;
+    private int player01Dice02;
+    private int player01Dice03;
 
     public Text p1Dice01;
     public Text p1Dice02;
     public Text p1Dice03;
 
     //Player 02 final Dices
-    public int player02Dice01;
-    public int player02Dice02;
-    public int player02Dice03;
+    private int player02Dice01;
+    private int player02Dice02;
+    private int player02Dice03;
 
     public Text p2Dice01;
     public Text p2Dice02;
     public Text p2Dice03;
 
-    public int player01Win;
-    public int player02Win;
+    private int player01Win;
+    private int player02Win;
 
     public Text totalPlayer01;
     public Text totalPlayer02;
 
+    public Text playersTurns;
+
+
+    public AudioSource diceRollsSound;
+    public AudioSource loseSOound;
+    public AudioSource winSound;
     //Dados
 
 
@@ -85,7 +91,9 @@ public class BattleSystem : MonoBehaviour
     public IEnumerator Player01DiceRolls()
     {
         //Ira rodar 03 dados e salvar em tres variaveis os resultados
+        playersTurns.text = "Player 01 Turns";        
         RollDice();
+        diceRollsSound.Play();
         player01Dice01 = finalSide;
         p1Dice01.text = player01Dice01.ToString();
         finalSide = 0;        
@@ -114,8 +122,9 @@ public class BattleSystem : MonoBehaviour
     IEnumerator Player02DiceRolls()
     {
         //Player 02 ira rodar 03 dados e salvar em tres variaveis os resultados
-
+        playersTurns.text = "Player 02 Turns";
         RollDice();
+        diceRollsSound.Play();
         player02Dice01 = finalSide;
         p2Dice01.text = player02Dice01.ToString();
         finalSide = 0;
@@ -194,13 +203,15 @@ public class BattleSystem : MonoBehaviour
     void Won()
     {
         //O Player 01 venceu
-        Debug.Log("Player 01 venceu!");
+        playersTurns.text = "You WIN!";
+        winSound.Play();
     }
 
     void Lost()
     {
         //Voce perdeu
-        Debug.Log("Player 02 venceu!");
+        playersTurns.text = "You LOSE!";
+        loseSOound.Play();
     }
 
 
