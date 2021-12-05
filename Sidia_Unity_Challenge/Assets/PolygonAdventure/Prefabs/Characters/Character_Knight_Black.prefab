@@ -549,6 +549,7 @@ MonoBehaviour:
   state: 0
   turnsCount: 0
   p: {fileID: 0}
+  walkiSound: {fileID: 0}
 --- !u!1 &113432
 GameObject:
   m_ObjectHideFlags: 0

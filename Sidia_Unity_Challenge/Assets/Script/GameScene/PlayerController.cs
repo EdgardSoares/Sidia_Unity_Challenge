@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject p;
 
+    public AudioSource walkiSound;
+
     //Canvas
     
 
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour
     {
         state = TurnState.PLAYER01TURN;
         Player01Turn();
+
+        walkiSound.GetComponent<AudioSource>();
         
         
     }
@@ -79,6 +83,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(MovePlayer(Vector3.right.normalized));
             turnsCount = turnsCount + 1;
+            walkiSound.Play();
             
         }
 
@@ -86,18 +91,21 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(MovePlayer(Vector3.left.normalized));
             turnsCount = turnsCount + 1;
+            walkiSound.Play();
         }
 
         if(Input.GetKey(KeyCode.W) && !isMoving)
         {
             StartCoroutine(MovePlayer(Vector3.forward.normalized));
             turnsCount = turnsCount + 1;
+            walkiSound.Play();
         }
 
         if (Input.GetKey(KeyCode.S) && !isMoving)
         {
             StartCoroutine(MovePlayer(Vector3.back.normalized));
             turnsCount = turnsCount + 1;
+            walkiSound.Play();
         }
         
 
