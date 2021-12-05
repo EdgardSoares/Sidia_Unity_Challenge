@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public enum BattleState { START, PLAYER01TURN, PLAYER02TURN, CHECKROLLS, WON, LOST}
 public class BattleSystem : MonoBehaviour
 {
@@ -45,6 +46,8 @@ public class BattleSystem : MonoBehaviour
     public AudioSource diceRollsSound;
     public AudioSource loseSOound;
     public AudioSource winSound;
+
+    public GameObject restartButton;
     //Dados
 
 
@@ -52,12 +55,18 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         state = BattleState.START;
-        SetupBattle();
+        StartCoroutine(SetupBattle());
+        restartButton.SetActive(false);
     }
 
-    void SetupBattle()
+    IEnumerator SetupBattle()
     {
-        
+        winSound.Play();
+        playersTurns.text = "The Battle Started!";
+
+        yield return new WaitForSeconds(2f);
+
+
         //player01Unit = player01Prefab.GetComponent<Unit>();
         //player01Unit = player02Prefab.GetComponent<Unit>();
         
@@ -205,6 +214,7 @@ public class BattleSystem : MonoBehaviour
         //O Player 01 venceu
         playersTurns.text = "You WIN!";
         winSound.Play();
+        restartButton.SetActive(true);
     }
 
     void Lost()
@@ -212,6 +222,17 @@ public class BattleSystem : MonoBehaviour
         //Voce perdeu
         playersTurns.text = "You LOSE!";
         loseSOound.Play();
+        restartButton.SetActive(true);
+    }
+
+    public void RestartBattle()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void BackToWorld()
+    {
+        SceneManager.LoadScene(3, LoadSceneMode.Single);
     }
 
 

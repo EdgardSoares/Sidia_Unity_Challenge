@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TurnControl : MonoBehaviour
 {
@@ -60,5 +61,10 @@ public class TurnControl : MonoBehaviour
          }
 
 
+    }
+
+    public void GoToBattle()
+    {
+        SceneManager.LoadScene(4, LoadSceneMode.Single);
     }
 }
