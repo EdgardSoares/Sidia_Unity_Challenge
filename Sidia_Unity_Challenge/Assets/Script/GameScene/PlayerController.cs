@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
         if (turnsCount == 0)
         {
-            Debug.Log("Fim do Turno do P1");
+            //Debug.Log("Fim do Turno do P1");
             
         }
         

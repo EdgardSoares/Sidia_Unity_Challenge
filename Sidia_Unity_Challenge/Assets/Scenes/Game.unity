@@ -356,7 +356,7 @@ MonoBehaviour:
   - {fileID: 113364, guid: dac2afd5e1dda1c4d9fe05cf141b47f0, type: 3}
   spawn: {fileID: 293715775}
   prefab: {fileID: 293715774}
-  player: {fileID: 0}
+  player: {fileID: 2126509173}
   p1TurnsCountTXT: {fileID: 647659807}
   p2TurnsCountTXT: {fileID: 1773733926}
   playerInfo: {fileID: 2126509174}

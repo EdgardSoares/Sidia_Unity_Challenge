@@ -36,8 +36,8 @@ public class CharacterGame : MonoBehaviour
     void Update()
     {
         transform.position = player.transform.position + distanceCam;
-        p1TurnsCountTXT.text = playerInfo.turnsCount.ToString();
-        p2TurnsCountTXT.text = player02Info.p2TurnsCount.ToString();
+        //p1TurnsCountTXT.text = playerInfo.turnsCount.ToString();
+        //p2TurnsCountTXT.text = player02Info.p2TurnsCount.ToString();
 
     }
 
