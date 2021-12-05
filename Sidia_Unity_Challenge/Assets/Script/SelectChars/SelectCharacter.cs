@@ -13,6 +13,7 @@ public class SelectCharacter : MonoBehaviour
     public GameObject player01BTN;
     public GameObject player02BTN;
     public GameObject startBTN;
+    public AudioSource clickSound;
 
 
     void Start()
@@ -22,7 +23,9 @@ public class SelectCharacter : MonoBehaviour
         characters[1].SetActive(false);
         characters[2].SetActive(false);
         player02BTN.SetActive(false);
-        
+
+        clickSound = GetComponent<AudioSource>();
+
 
     }
 
@@ -60,6 +63,10 @@ public class SelectCharacter : MonoBehaviour
         SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 
+    public void OnMouseDown()
+    {
+        clickSound.Play();
+    }
 
     //Metodo do botao Start, salvando o personagem selecionado e carregando a cena do jogo
     public void StartGame()

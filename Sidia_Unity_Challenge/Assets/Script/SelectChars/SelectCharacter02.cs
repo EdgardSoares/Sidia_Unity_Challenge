@@ -9,8 +9,12 @@ public class SelectCharacter02 : MonoBehaviour
 
     public GameObject selectPlayerBTN;
 
-    
+    public AudioSource clickSound;
 
+    void Start()
+    {
+        clickSound = GetComponent<AudioSource>();
+    }
 
 
 
@@ -44,5 +48,11 @@ public class SelectCharacter02 : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(3, LoadSceneMode.Single);
+    }
+
+
+    public void OnMouseDown()
+    {
+        clickSound.Play();
     }
 }
