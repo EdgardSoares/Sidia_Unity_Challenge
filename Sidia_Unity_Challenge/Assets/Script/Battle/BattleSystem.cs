@@ -48,6 +48,8 @@ public class BattleSystem : MonoBehaviour
     public AudioSource winSound;
 
     public GameObject restartButton;
+    public GameObject menuButton;
+    public GameObject backToWorld;
     //Dados
 
 
@@ -57,6 +59,11 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.START;
         StartCoroutine(SetupBattle());
         restartButton.SetActive(false);
+        menuButton.SetActive(false);
+        backToWorld.SetActive(false);
+
+        player01Unit = player01Prefab.GetComponent<Unit>();
+        player01Unit = player02Prefab.GetComponent<Unit>();
     }
 
     IEnumerator SetupBattle()
@@ -67,8 +74,7 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
 
-        //player01Unit = player01Prefab.GetComponent<Unit>();
-        //player01Unit = player02Prefab.GetComponent<Unit>();
+        
         
         state = BattleState.PLAYER01TURN;        
         StartCoroutine(Player01DiceRolls());
@@ -162,7 +168,7 @@ public class BattleSystem : MonoBehaviour
     {
         //Pegar os valores de cada um e comparar e ver qual o maior, quem tiver mais pontos ganhos. Vence.
         //Verificando os primeiros dados
-        if (player01Dice01 > player02Dice01)
+        if (player01Dice01 >= player02Dice01)
         {
             player01Win = player01Win + 1;
         } else
@@ -171,7 +177,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         //verificando o segundo dados
-        if (player01Dice02 > player02Dice02 )
+        if (player01Dice02 >= player02Dice02 )
         {
             player01Win = player01Win + 1;
         }
@@ -181,7 +187,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         //verificando o terceiro dado
-        if (player01Dice03 > player02Dice03)
+        if (player01Dice03 >= player02Dice03)
         {
             player01Win = player01Win + 1;
         }
@@ -194,20 +200,50 @@ public class BattleSystem : MonoBehaviour
         totalPlayer02.text = player02Win.ToString();
 
         //Se os pontos do player 01 for maior que o do player 02... Player 01 Vence, se nao, Player 02 vence
-        if (player01Win > player02Win)
+        if (player01Win >= player02Win)
         {
+            //Causar Dano baseado na quantidade de pontos de attack
+            
             state = BattleState.WON;
-            Won();
+           Won();
         }else
         {
+            
             state = BattleState.LOST;
             Lost();
         }
-       
-        
-        
 
     }
+
+    IEnumerator Player01Attack()
+    {
+        //Dano no inimigo
+
+        bool isDead = player02Unit.TakeDamage(player01Unit.damage);
+
+        Debug.Log("Atacou com sucesso!");
+        Debug.Log(player02Unit.currentHP);
+
+        yield return new WaitForSeconds(1f);
+
+        if (isDead)
+        {
+            //Fim da Batalha
+            state = BattleState.WON;
+        } else
+        {
+            //Rolar novamente os dados
+            state = BattleState.PLAYER01TURN;
+            StartCoroutine(Player01DiceRolls()); 
+        }
+
+        //Checar se o inimigo morreu
+        //Mudar o state dependendo doo que aconteceu
+    }
+
+    //IEnumerator 
+
+
 
     void Won()
     {
@@ -215,6 +251,8 @@ public class BattleSystem : MonoBehaviour
         playersTurns.text = "You WIN!";
         winSound.Play();
         restartButton.SetActive(true);
+        menuButton.SetActive(true);
+        backToWorld.SetActive(true);
     }
 
     void Lost()
@@ -223,6 +261,8 @@ public class BattleSystem : MonoBehaviour
         playersTurns.text = "You LOSE!";
         loseSOound.Play();
         restartButton.SetActive(true);
+        menuButton.SetActive(true);
+        backToWorld.SetActive(true);
     }
 
     public void RestartBattle()
@@ -235,6 +275,10 @@ public class BattleSystem : MonoBehaviour
         SceneManager.LoadScene(3, LoadSceneMode.Single);
     }
 
+    public void MenuBack()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
 
 
 }

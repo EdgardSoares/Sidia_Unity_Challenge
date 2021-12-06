@@ -2865,7 +2865,7 @@ GameObject:
   - component: {fileID: 3204762066923067113}
   m_Layer: 0
   m_Name: Character_Warrior_White
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

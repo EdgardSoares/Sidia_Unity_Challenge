@@ -8,6 +8,7 @@ public class GridManager : MonoBehaviour
     private float gridSpace = 3f;
     public Vector3 gridOrigin = Vector3.zero;
     public GameObject[] item;
+    public GameObject[] collectables;
 
     public Tile tilePrefab;
     
@@ -32,7 +33,11 @@ public class GridManager : MonoBehaviour
     void PickAndSpawn (Vector3 positionToSpawn, Quaternion rotationToSpawn)
     {
         int randomIndex = Random.Range(0, item.Length);
+        int randomIndexCollect = Random.Range(0, collectables.Length);
         GameObject clone = Instantiate(item[randomIndex], positionToSpawn, rotationToSpawn);
+        GameObject clone2 = Instantiate(collectables[randomIndexCollect], positionToSpawn, rotationToSpawn);
     }
+
+    
    
 }

@@ -26,7 +26,7 @@ public class Player02Controller : MonoBehaviour
         
         if (p2TurnsCount == 0)
         {
-            Debug.Log("Fim do Turno do P2");
+            
         }
 
 
